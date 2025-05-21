@@ -12,7 +12,7 @@ class SDM230Reader:
     REGISTER_CURRENT = 0x0006           # Strom in A
     REGISTER_TOTAL_ACTIVE_ENERGY = 0x0156  # Gesamte Wirkenergie in kWh
     
-    def __init__(self, port='/dev/ttyAMA5', device_address=1, baudrate=9600):
+    def __init__(self, port='/dev/ttyAMA2', device_address=1, baudrate=19200):
         """Initialisiere die Verbindung zum SDM230.
         
         Args:
@@ -22,7 +22,7 @@ class SDM230Reader:
         """
         self.instrument = minimalmodbus.Instrument(port, device_address)
         self.instrument.serial.baudrate = baudrate
-        self.instrument.serial.parity = 'N'  # Keine Parität
+        self.instrument.serial.parity = minimalmodbus.serial.PARITY_EVEN  # Keine Parität
         self.instrument.serial.stopbits = 1
         self.instrument.serial.timeout = 1
         
@@ -81,7 +81,7 @@ class SDM230Reader:
 # Beispiel zur Verwendung des Codes:
 if __name__ == "__main__":
     # Nur zur Demonstration - dieser Block wird nicht ausgeführt, wenn das Skript importiert wird
-    reader = SDM230Reader(port='/dev/ttyAMA5')
+    reader = SDM230Reader(port='/dev/ttyAMA2')
     
     # Einzelne Werte auslesen
     voltage = reader.read_voltage()
