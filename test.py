@@ -5,27 +5,27 @@ import minimalmodbus
 rs485 = minimalmodbus.Instrument('/dev/ttyAMA2', 1)
 rs485.serial.baudrate = 9600
 rs485.serial.bytesize = 8
-rs485.serial.parity = minimalmodbus.serial.PARITY_NONE
+rs485.serial.parity = serial.PARITY_NONE
 rs485.serial.stopbits = 1
 rs485.serial.timeout = 1
 rs485.debug = False
 rs485.mode = minimalmodbus.MODE_RTU
 print (rs485)
 
-Volts = rs485.read_float(0, functioncode=4, numberOfRegisters=2)
-Current = rs485.read_float(6, functioncode=4, numberOfRegisters=2)
-Active_Power = rs485.read_float(12, functioncode=4, numberOfRegisters=2)
-Apparent_Power = rs485.read_float(18, functioncode=4, numberOfRegisters=2)
-Reactive_Power = rs485.read_float(24, functioncode=4, numberOfRegisters=2)
-Power_Factor = rs485.read_float(30, functioncode=4, numberOfRegisters=2)
-Phase_Angle = rs485.read_float(36, functioncode=4, numberOfRegisters=2)
-Frequency = rs485.read_float(70, functioncode=4, numberOfRegisters=2)
-Import_Active_Energy = rs485.read_float(72, functioncode=4, numberOfRegisters=2) 
-Export_Active_Energy = rs485.read_float(74, functioncode=4, numberOfRegisters=2)
-Import_Reactive_Energy = rs485.read_float(76, functioncode=4, numberOfRegisters=2)
-Export_Reactive_Energy = rs485.read_float(78, functioncode=4, numberOfRegisters=2)
-Total_Active_Energy = rs485.read_float(342, functioncode=4, numberOfRegisters=2)
-Total_Reactive_Energy = rs485.read_float(344, functioncode=4, numberOfRegisters=2)
+Volts                   = rs485.read_float(0, functioncode=4)
+Current                 = rs485.read_float(6, functioncode=4)
+Active_Power           = rs485.read_float(12, functioncode=4)
+Apparent_Power         = rs485.read_float(18, functioncode=4)
+Reactive_Power         = rs485.read_float(24, functioncode=4)
+Power_Factor           = rs485.read_float(30, functioncode=4)
+Phase_Angle            = rs485.read_float(36, functioncode=4)
+Frequency              = rs485.read_float(70, functioncode=4)
+Import_Active_Energy   = rs485.read_float(72, functioncode=4)
+Export_Active_Energy   = rs485.read_float(74, functioncode=4)
+Import_Reactive_Energy = rs485.read_float(76, functioncode=4)
+Export_Reactive_Energy = rs485.read_float(78, functioncode=4)
+Total_Active_Energy    = rs485.read_float(342, functioncode=4)
+Total_Reactive_Energy  = rs485.read_float(344, functioncode=4)
 
 print ('Voltage: {0:.1f} Volts'.format(Volts))
 print ('Current: {0:.1f} Amps'.format(Current))
