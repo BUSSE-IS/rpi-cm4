@@ -1,0 +1,36 @@
+{
+  "edit": false,
+  "general": {
+    "ip": "192.168.119.12",
+    "apikey": ""
+  },
+  "mqtt": {
+    "broker": "mqtt.busse-board.de",
+    "port": 8883,
+    "username": "",
+    "password": "",
+    "device_id": "device001"
+  },
+  "esp32_broker": {
+    "enabled": false,
+    "port": 1884
+  },
+  "remote_devices": {},
+  "modbus_data": [],
+  "pin_settings": {
+    "action": [],
+    "counter": []
+  },
+  "sensors": {
+    "power_sensor": {
+      "enabled": false,
+      "port": "/dev/ttyUSB0",
+      "baudrate": 9600,
+      "slave_id": 1
+    },
+    "flow_sensors": {},
+    "tds_sensors": {},
+    "pressure_sensors": {},
+    "turbidity_sensors": {}
+  }
+}
